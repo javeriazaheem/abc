@@ -536,6 +536,20 @@ section.block{
   box-shadow:4px 4px 0 var(--ink);
 }
 
+.contact-details{
+  display:block;
+  font-style:normal;
+  font-family:'Space Mono', monospace;
+  font-size:0.9rem;
+  color:#FFF4EF;
+  margin-bottom:30px;
+}
+.contact-details a{
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.contact-details a:hover{ color:var(--sun); }
+
 .contact-form{
   max-width:520px;
   margin:0 auto;
