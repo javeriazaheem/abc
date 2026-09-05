@@ -93,6 +93,29 @@ nav{
   gap:8px;
   list-style:none;
 }
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.theme-toggle{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:2px solid var(--ink);
+  background:transparent;
+  font-size:1.1rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  flex-shrink:0;
+  transition:transform 0.2s ease, background 0.2s ease;
+}
+.theme-toggle:hover{
+  background:var(--sun);
+  transform:translateY(-2px) rotate(-8deg);
+}
 .nav-links a{
   font-weight:600;
   font-size:0.92rem;
@@ -630,4 +653,52 @@ footer.site-footer .footer-links a:hover{ color:var(--coral); }
   .sticker-1{ left:6px; top:-16px; }
   .sticker-2{ right:6px; }
   .sticker-3{ left:6px; }
+}
+
+/* ---------- DARK MODE ---------- */
+[data-theme="dark"]{
+  --line: rgba(237,233,251,0.14);
+}
+[data-theme="dark"] body{
+  background:#181428;
+  color:#EDE9FB;
+}
+[data-theme="dark"] header{
+  background:rgba(24,20,40,0.9);
+  border-bottom-color:#3A3160;
+}
+[data-theme="dark"] .theme-toggle{
+  border-color:#EDE9FB;
+}
+[data-theme="dark"] .hero-left p.lede,
+[data-theme="dark"] .achieve-card p,
+[data-theme="dark"] .ngo-card p,
+[data-theme="dark"] .detail-list p,
+[data-theme="dark"] .skills-grid p,
+[data-theme="dark"] .pic-strip figcaption{
+  color:#C9C2E8;
+}
+[data-theme="dark"] .achieve-card,
+[data-theme="dark"] .detail-list li,
+[data-theme="dark"] .skills-grid .skill-card,
+[data-theme="dark"] .pic-strip figure{
+  background:#241E46;
+  border-color:#4A3F7A;
+}
+[data-theme="dark"] .achieve-card.a1{ background:#3A2A3D; }
+[data-theme="dark"] .achieve-card.a2{ background:#3A331E; }
+[data-theme="dark"] .achieve-card.a3{ background:#1E3833; }
+[data-theme="dark"] .ngo-card.n1{ background:#332B1B; }
+[data-theme="dark"] .ngo-card.n2{ background:#1B3330; }
+[data-theme="dark"] .ngo-card,
+[data-theme="dark"] .detail-list li,
+[data-theme="dark"] .achieve-card,
+[data-theme="dark"] .skills-grid .skill-card{
+  border-color:#4A3F7A;
+}
+[data-theme="dark"] footer.site-footer{
+  color:#9C93C4;
+}
+[data-theme="dark"] footer.site-footer a:hover{
+  color:var(--coral);
 }
