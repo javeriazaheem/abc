@@ -8,9 +8,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:ital,wght@0,400;0,500;0,600;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <script>
-  if (localStorage.getItem('theme') === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
+  (function () {
+    var stored = localStorage.getItem('theme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (stored === 'dark' || (!stored && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
 </script>
 </head>
 <body>
@@ -35,6 +39,7 @@
     <div class="hero-left fade-up">
       <span class="eyebrow">The fuller picture</span>
       <h1>Education, <span class="accent">honors</span>, and everything in between.</h1>
+      <p class="typed-line"><span id="typed-text"></span><span class="typed-cursor" aria-hidden="true"></span></p>
       <p class="lede">A closer look at my school journey, awards, extracurriculars, internship, community service, and the projects I've built along the way.</p>
     </div>
   </section>
