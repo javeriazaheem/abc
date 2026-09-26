@@ -17,6 +17,24 @@
   })();
 </script>
 </head>
+<!-- Ask My Portfolio Chatbot Widget -->
+<button class="chatbot-toggle" id="chatbotToggle" onclick="toggleChatbot()">💬</button>
+<div class="chatbot-window" id="chatbotWindow">
+  <div class="chatbot-header">
+    Ask My Portfolio
+    <button class="chatbot-close" onclick="toggleChatbot()">&times;</button>
+  </div>
+  <div class="chatbot-messages" id="chatbot-messages">
+    <div class="chatbot-msg bot-msg">Hi! Ask me anything about Javeria's background, skills, and projects.</div>
+    <div class="chatbot-typing" id="chatbot-typing">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="chatbot-input">
+    <input type="text" id="chatbot-input" placeholder="Type a message..." onkeydown="if(event.key==='Enter') sendChatbotMessage()">
+    <button onclick="sendChatbotMessage()">Send</button>
+  </div>
+</div>
 <body>
 
 <header>
