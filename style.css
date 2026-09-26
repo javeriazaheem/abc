@@ -916,7 +916,7 @@ footer.site-footer .footer-links a:hover{ color:var(--coral); }
 [data-theme="dark"] .chatbot-input { background: #241E46; border-top-color: #4A3F7A; }
 [data-theme="dark"] .chatbot-input input { background: #181428; color: #EDE9FB; border-color: #4A3F7A; }
 [data-theme="dark"] .chatbot-typing span { background: #EDE9FB; }
-.chatbot-toggle { position: relative; }
+
 .chatbot-toggle::after {
   content: "";
   position: absolute;
