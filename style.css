@@ -916,3 +916,58 @@ footer.site-footer .footer-links a:hover{ color:var(--coral); }
 [data-theme="dark"] .chatbot-input { background: #241E46; border-top-color: #4A3F7A; }
 [data-theme="dark"] .chatbot-input input { background: #181428; color: #EDE9FB; border-color: #4A3F7A; }
 [data-theme="dark"] .chatbot-typing span { background: #EDE9FB; }
+.chatbot-toggle { position: relative; }
+.chatbot-toggle::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 2px solid var(--coral);
+  border-radius: 50%;
+  opacity: 0;
+  animation: chatbotPulseRing 2.5s ease-out 1s 3;
+}
+@keyframes chatbotPulseRing {
+  0% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
+/* ============================================================
+   PAGE LOADING SPINNER
+   ============================================================ */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+#page-loader.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader-spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--ink);
+  border-top-color: var(--coral);
+  border-radius: 50%;
+  animation: loaderSpin 0.8s linear infinite;
+}
+@keyframes loaderSpin {
+  to { transform: rotate(360deg); }
+}
+[data-theme="dark"] #page-loader { background: #181428; }
+[data-theme="dark"] .loader-spinner {
+  border-color: #4A3F7A;
+  border-top-color: var(--coral);
+}
+/* Fix: sticker-1 and sticker-3 keep light backgrounds in dark mode too,
+   so their text needs to stay dark for contrast (sticker-2 already
+   sets its own color and is unaffected). */
+[data-theme="dark"] .sticker-1,
+[data-theme="dark"] .sticker-3 {
+  color: #241E46;
+}

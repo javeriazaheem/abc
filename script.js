@@ -186,3 +186,12 @@ async function sendChatbotMessage() {
     appendChatbotBubble('Network error — please check your connection and try again.', 'chatbot-msg bot-msg');
   }
 }
+// ---- Page loading spinner ----
+window.addEventListener('load', function () {
+  var loader = document.getElementById('page-loader');
+  if (!loader) return;
+  loader.classList.add('loader-hidden');
+  setTimeout(function () {
+    loader.remove();
+  }, 400);
+});
