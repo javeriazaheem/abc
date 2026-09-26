@@ -195,3 +195,34 @@ window.addEventListener('load', function () {
     loader.remove();
   }, 400);
 });
+// ---- Chatbot callout (draws attention to the chat button) ----
+(function () {
+  var callout = document.getElementById('chatbotCallout');
+  var closeBtn = document.getElementById('chatbotCalloutClose');
+  var toggleBtn = document.getElementById('chatbotToggle');
+  if (!callout || !toggleBtn) return;
+
+  var DISMISS_KEY = 'chatbotCalloutDismissed';
+
+  function hideCallout() {
+    callout.classList.remove('chatbot-callout-visible');
+    localStorage.setItem(DISMISS_KEY, 'true');
+  }
+
+  if (!localStorage.getItem(DISMISS_KEY)) {
+    setTimeout(function () {
+      callout.classList.add('chatbot-callout-visible');
+    }, 1500);
+
+    setTimeout(hideCallout, 9500); // auto-hide after ~8s visible
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      hideCallout();
+    });
+  }
+
+  toggleBtn.addEventListener('click', hideCallout);
+})();

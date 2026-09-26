@@ -971,3 +971,70 @@ footer.site-footer .footer-links a:hover{ color:var(--coral); }
 [data-theme="dark"] .sticker-3 {
   color: #241E46;
 }
+/* ============================================================
+   CHATBOT CALLOUT — draws attention to the chat button
+   ============================================================ */
+.chatbot-callout {
+  position: fixed;
+  bottom: 88px;
+  right: 20px;
+  max-width: 200px;
+  background: #fff;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  padding: 10px 30px 10px 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  box-shadow: 4px 4px 0 var(--ink);
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.chatbot-callout.chatbot-callout-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.chatbot-callout::after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  right: 24px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-right: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  transform: rotate(45deg);
+}
+.chatbot-callout-close {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: var(--ink);
+  font-size: 15px;
+  cursor: pointer;
+  line-height: 1;
+}
+@media (max-width: 500px) {
+  .chatbot-callout { right: 16px; max-width: 160px; }
+}
+[data-theme="dark"] .chatbot-callout {
+  background: #241E46;
+  border-color: #4A3F7A;
+  color: #EDE9FB;
+}
+[data-theme="dark"] .chatbot-callout::after {
+  background: #241E46;
+  border-color: #4A3F7A;
+}
+[data-theme="dark"] .chatbot-callout-close {
+  color: #EDE9FB;
+}
