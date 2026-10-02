@@ -263,5 +263,5 @@ window.addEventListener('load', function () {
   }
 
   loadWeather();
-  setInterval(loadWeather, 15 * 60 * 1000); // refresh every 15 minutes
+  setInterval(loadWeather, 30 * 1000); // refresh every 30 seconds
 })();
