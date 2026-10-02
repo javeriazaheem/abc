@@ -226,3 +226,42 @@ window.addEventListener('load', function () {
 
   toggleBtn.addEventListener('click', hideCallout);
 })();
+// ---- Weather widget (Open-Meteo, no API key needed) ----
+(function () {
+  const iconEl = document.getElementById('weather-icon');
+  const textEl = document.getElementById('weather-text');
+  if (!iconEl || !textEl) return;
+
+  // Turns Open-Meteo's weather code into an emoji
+  function getIcon(code) {
+    if (code === 0) return '☀️';
+    if (code <= 2) return '⛅';
+    if (code === 3) return '☁️';
+    if (code === 45 || code === 48) return '🌫️';
+    if (code >= 51 && code <= 67) return '🌧️';
+    if (code >= 71 && code <= 77) return '❄️';
+    if (code >= 80 && code <= 82) return '🌦️';
+    if (code >= 95) return '⛈️';
+    return '🌡️';
+  }
+
+  async function loadWeather() {
+    const url = 'https://api.open-meteo.com/v1/forecast'
+      + '?latitude=31.45&longitude=73.135'
+      + '&current=temperature_2m,weather_code'
+      + '&timezone=auto';
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const temp = Math.round(data.current.temperature_2m);
+      iconEl.textContent = getIcon(data.current.weather_code);
+      textEl.textContent = 'Faisalabad ' + temp + '°C';
+    } catch (err) {
+      iconEl.textContent = '🌡️';
+      textEl.textContent = 'Weather unavailable';
+    }
+  }
+
+  loadWeather();
+  setInterval(loadWeather, 15 * 60 * 1000); // refresh every 15 minutes
+})();

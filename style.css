@@ -1038,3 +1038,28 @@ footer.site-footer .footer-links a:hover{ color:var(--coral); }
 [data-theme="dark"] .chatbot-callout-close {
   color: #EDE9FB;
 }
+/* ---------- WEATHER WIDGET ---------- */
+.weather-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 2px solid var(--ink);
+  border-radius: 100px;
+  background: var(--pink-pale);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+@media (max-width: 500px) {
+  .weather-pill { font-size: 0.68rem; padding: 6px 10px; }
+}
+
+[data-theme="dark"] .weather-pill {
+  background: #2E2755;
+  border-color: #4A3F7A;
+  color: #EDE9FB;
+}
